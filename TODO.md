@@ -1,5 +1,9 @@
 # TODO
 
+- [ ] (Understand JPA) - https://spring.academy/courses/building-a-rest-api-with-spring-boot/lessons/spring-data-lab/lab
+- [ ] Add CrudRepository SettingsCRUD and make it work
+- [ ] Connect Settings to Settins CRUD and also the controller
+- [ ] Add again the Settings_.java and understand the record in Settings. 
 ## DATABASE DRAFT
 
 
