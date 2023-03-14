@@ -1,4 +1,4 @@
-package com.oman.oman;
+package com.oman;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
