@@ -47,4 +47,32 @@ Prospects
   company
   email
   process_id
+
+### Database persistance
+
+https://www.youtube.com/watch?v=A8qZUF-GcKo
+
+### You know, record does not work!
+
+[todo](https://www.youtube.com/watch?v=dyA-4QPSowA)
+
+package com.oman.todoitem;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public record TodoItem(
+        @Id @GeneratedValue Long id,
+        String title,
+        String description,
+        boolean completed) {
+
+    public TodoItem {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Title cannot be blank");
+        }
+    }
+}
   
