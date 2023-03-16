@@ -36,8 +36,8 @@ Process
 
 Email
    id
-   email_subject
-   email_template_text
+   email_subject x 
+   email_template_text x
 
 Prospects
   id
