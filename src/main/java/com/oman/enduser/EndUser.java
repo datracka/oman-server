@@ -6,7 +6,9 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
 public class EndUser {
@@ -35,6 +37,8 @@ public class EndUser {
     @GeneratedValue(generator = "UUID")
     private UUID uuid;
 
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }
