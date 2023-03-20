@@ -1,14 +1,19 @@
 package com.oman.enduser;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
+
+import com.oman.campaign.Campaign;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class EndUser {
@@ -36,6 +41,10 @@ public class EndUser {
 
     @GeneratedValue(generator = "UUID")
     private UUID uuid;
+
+    // Mapping to the other table
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Campaign> campaign;
 
     @Id
     @GeneratedValue
