@@ -114,14 +114,6 @@ public class Lead {
         this.germanIntro = germanIntro;
     }
 
-    public Campaign getCampaign() {
-        return campaign;
-    }
-
-    public void setCampaign(Campaign campaign) {
-        this.campaign = campaign;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
