@@ -79,4 +79,5 @@ public class EndUser {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

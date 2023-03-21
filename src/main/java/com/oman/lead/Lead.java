@@ -12,6 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Lead {
@@ -35,6 +36,7 @@ public class Lead {
     @GeneratedValue(generator = "UUID")
     private UUID uuuid;
 
+    @ManyToOne
     @JoinColumn(name = "campaign_id")
     private Campaign campaign;
 
