@@ -8,7 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.oman.enduser.EndUser;
-// import com.oman.lead.Lead;
+
 import com.oman.lead.Lead;
 
 import jakarta.persistence.CascadeType;
@@ -22,12 +22,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
 @Entity
+@NoArgsConstructor
 @Table(name = "campaign")
 public class Campaign {
 
@@ -53,11 +54,10 @@ public class Campaign {
     private UUID uuid;
 
     @ManyToOne
-    @JoinColumn(name = "end_user_id")
     private EndUser endUser;
 
-    // Mapping to the other table
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "campaign_id")
     private Set<Lead> lead;
 
 }

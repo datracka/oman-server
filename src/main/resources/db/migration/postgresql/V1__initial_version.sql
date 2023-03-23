@@ -1,4 +1,4 @@
-create table if not exists end_user
+create table if not exists enduser
 (
     id          bigint  not null
         primary key, 
@@ -10,7 +10,7 @@ create table if not exists end_user
     uuid varchar(255) not null
 );
 
-alter table end_user
+alter table enduser
     owner to vicensfayos;
 
 create table if not exists setting
@@ -28,11 +28,11 @@ create table if not exists setting
     email_test_sender varchar(255) not null,
     email_test_recipient varchar(255) not null,
     test_mode boolean not null,
-    end_user_id bigint not null,
+    enduser_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
     uuid varchar(255) not null,
-    CONSTRAINT fk_user_setting FOREIGN KEY(end_user_id) REFERENCES end_user(id)
+    CONSTRAINT fk_user FOREIGN KEY(enduser_id) REFERENCES enduser(id)
 );
 
 alter table setting
@@ -51,11 +51,11 @@ create table if not exists campaign
     email_finding_status integer not null,
     excerpt_generation_status integer not null,
     campaign_status integer not null,
-    end_user_id bigint not null,
+    enduser_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
     uuid varchar(255) not null,
-    CONSTRAINT fk_user_campaign FOREIGN KEY(end_user_id) REFERENCES end_user(id)
+    CONSTRAINT fk_user FOREIGN KEY(enduser_id) REFERENCES enduser(id)
 );
 
 alter table campaign
@@ -77,14 +77,14 @@ create table if not exists lead
     created_at timestamp not null,
     updated_at timestamp not null,
     uuid varchar(255) not null,
-    CONSTRAINT fk_campaign_lead FOREIGN KEY(campaign_id) REFERENCES campaign(id)
+    CONSTRAINT fk_campaign FOREIGN KEY(campaign_id) REFERENCES campaign(id)
 );
 
 alter table lead
     owner to vicensfayos;
 
 create index index_id_on_settings on setting (id);
-create index index_id_on_end_user on end_user (id);
+create index index_id_on_enduser on enduser (id);
 create index index_id_on_campaign on campaign (id);
 create index index_id_on_leads on lead (id);
 

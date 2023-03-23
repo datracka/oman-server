@@ -15,17 +15,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Builder
 @Entity
+@NoArgsConstructor
 @Table(name = "enduser")
 public class EndUser {
 
@@ -46,6 +47,7 @@ public class EndUser {
     private UUID uuid;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "enduser_id")
     private Set<Campaign> campaign;
 
     @OneToOne(mappedBy = "enduser")
