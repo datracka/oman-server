@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.oman.campaign.Campaign;
-import com.oman.settings.Settings;
+import com.oman.setting.Setting;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -49,6 +49,6 @@ public class EndUser {
     private Set<Campaign> campaign;
 
     @OneToOne(mappedBy = "enduser")
-    private Settings settings;
+    private Setting setting;
 
 }

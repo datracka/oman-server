@@ -1,4 +1,4 @@
-package com.oman.settings;
+package com.oman.setting;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -24,8 +24,8 @@ import lombok.Setter;
 @Setter
 @Builder
 @Entity
-@Table(name = "settings")
-public class Settings {
+@Table(name = "setting")
+public class Setting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

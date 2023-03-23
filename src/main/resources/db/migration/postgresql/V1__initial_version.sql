@@ -13,7 +13,7 @@ create table if not exists end_user
 alter table end_user
     owner to vicensfayos;
 
-create table if not exists settings
+create table if not exists setting
 (
     id          bigint  not null
         primary key,
@@ -32,10 +32,10 @@ create table if not exists settings
     created_at timestamp not null,
     updated_at timestamp not null,
     uuid varchar(255) not null,
-    CONSTRAINT fk_user_settings FOREIGN KEY(end_user_id) REFERENCES end_user(id)
+    CONSTRAINT fk_user_setting FOREIGN KEY(end_user_id) REFERENCES end_user(id)
 );
 
-alter table settings
+alter table setting
     owner to vicensfayos;
 
 
@@ -83,7 +83,7 @@ create table if not exists lead
 alter table lead
     owner to vicensfayos;
 
-create index index_id_on_settings on settings (id);
+create index index_id_on_settings on setting (id);
 create index index_id_on_end_user on end_user (id);
 create index index_id_on_campaign on campaign (id);
 create index index_id_on_leads on lead (id);
