@@ -1,5 +1,13 @@
 # TODO
 
+## Next
+
+- with TODOItem save an item using commandline runner.
+- learn HAL and define api with swagger to define the API.
+- Create RestComponents and connect with the model 
+- Shape API for our needs
+- Auth in Spring (API based)
+
 ## interesting articles
 
 - [How to add one to many relation](https://www.geeksforgeeks.org/how-to-implement-one-to-many-mapping-in-spring-boot/)

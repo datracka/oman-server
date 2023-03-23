@@ -16,6 +16,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,6 +25,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "setting")
 public class Setting {
 
@@ -57,4 +59,6 @@ public class Setting {
     @JoinColumn(name = "end_user_id", referencedColumnName = "id")
     private EndUser enduser;
 
+    public Setting(String linkedinCookie, String dropContactApiKey, String zohoApikey, String openAAPiKey, String openAIOrganizationID, String emailBouncedAddress, String emailSender, String emailTestSender, String emailTestRecipient, boolean b) {
+    }
 }
