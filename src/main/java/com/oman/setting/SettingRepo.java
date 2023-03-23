@@ -1,7 +1,7 @@
 package com.oman.setting;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface SettingRepo extends JpaRepository<Setting, Long> {
+public interface SettingRepo extends CrudRepository<Setting, Long> {
 
 }
