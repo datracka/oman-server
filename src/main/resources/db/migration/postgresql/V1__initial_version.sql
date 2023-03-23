@@ -1,26 +1,3 @@
-create table if not exists settings
-(
-    id          bigint  not null
-        primary key,
-    linkedin_cookie  varchar(255),
-    dropcontact_api_key varchar(255),
-    zoho_api_key varchar(255),
-    openai_api_key varchar(255),
-    openai_organization_id varchar(255),
-    email_bounce_address varchar(255) not null,
-    email_domain varchar(255) not null,
-    email_sender varchar(255) not null,
-    email_test_sender varchar(255) not null,
-    email_test_recipient varchar(255) not null,
-    test_mode boolean not null,
-    created_at timestamp not null,
-    updated_at timestamp not null,
-    uuid varchar(255) not null
-);
-
-alter table settings
-    owner to vicensfayos;
-
 create table if not exists end_user
 (
     id          bigint  not null
@@ -36,11 +13,37 @@ create table if not exists end_user
 alter table end_user
     owner to vicensfayos;
 
+create table if not exists settings
+(
+    id          bigint  not null
+        primary key,
+    linkedin_cookie  varchar(255),
+    dropcontact_api_key varchar(255),
+    zoho_api_key varchar(255),
+    openai_api_key varchar(255),
+    openai_organization_id varchar(255),
+    email_bounce_address varchar(255) not null,
+    email_domain varchar(255) not null,
+    email_sender varchar(255) not null,
+    email_test_sender varchar(255) not null,
+    email_test_recipient varchar(255) not null,
+    test_mode boolean not null,
+    end_user_id bigint not null,
+    created_at timestamp not null,
+    updated_at timestamp not null,
+    uuid varchar(255) not null,
+    CONSTRAINT fk_user_settings FOREIGN KEY(end_user_id) REFERENCES end_user(id)
+);
+
+alter table settings
+    owner to vicensfayos;
+
 
 create table if not exists campaign
 (
      id          bigint  not null
         primary key, 
+    campaignName varchar(512) not null,
     linkedin_leads_url varchar(255) not null,
     email_template_subject varchar(4096) not null,
     email_template_text varchar not null,
@@ -52,7 +55,7 @@ create table if not exists campaign
     created_at timestamp not null,
     updated_at timestamp not null,
     uuid varchar(255) not null,
-    CONSTRAINT fk_user FOREIGN KEY(end_user_id) REFERENCES end_user(id)
+    CONSTRAINT fk_user_campaign FOREIGN KEY(end_user_id) REFERENCES end_user(id)
 );
 
 alter table campaign
@@ -74,7 +77,7 @@ create table if not exists lead
     created_at timestamp not null,
     updated_at timestamp not null,
     uuid varchar(255) not null,
-    CONSTRAINT fk_campaign FOREIGN KEY(campaign_id) REFERENCES campaign(id)
+    CONSTRAINT fk_campaign_lead FOREIGN KEY(campaign_id) REFERENCES campaign(id)
 );
 
 alter table lead

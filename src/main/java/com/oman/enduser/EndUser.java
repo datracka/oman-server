@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.oman.campaign.Campaign;
+import com.oman.settings.Settings;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,6 +16,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
@@ -45,5 +47,8 @@ public class EndUser {
 
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Campaign> campaign;
+
+    @OneToOne(mappedBy = "enduser")
+    private Settings settings;
 
 }

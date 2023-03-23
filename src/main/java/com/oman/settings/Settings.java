@@ -6,10 +6,15 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.oman.enduser.EndUser;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
@@ -47,5 +52,9 @@ public class Settings {
 
     @GeneratedValue(generator = "UUID")
     private UUID uuid;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "end_user_id", referencedColumnName = "id")
+    private EndUser enduser;
 
 }

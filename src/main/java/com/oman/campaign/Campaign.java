@@ -34,6 +34,7 @@ public class Campaign {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String campaignName;
     private String linkedinLeadsUrl;
     private String emailTemplateSubject;
     private String emailTemplateText;

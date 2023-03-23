@@ -1,17 +1,11 @@
 # TODO
 
-## Current issue
+## interesting articles
 
-````java
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Could not determine recommended JdbcType for `com.oman.campaign.Campaign`
-````
-
-I got an error in Campaigns. I think is something related to one to many relation.
-
-  
-
-How to add one to many relation: https://www.geeksforgeeks.org/how-to-implement-one-to-many-mapping-in-spring-boot/
-if you want to understand EntityManager https://www.bezkoder.com/jpa-entitymanager-spring-boot/
+- [How to add one to many relation](https://www.geeksforgeeks.org/how-to-implement-one-to-many-mapping-in-spring-boot/)
+- [Understand EntityManager](https://www.bezkoder.com/jpa-entitymanager-spring-boot/)
+- [JPA annotations](https://www.digitalocean.com/community/tutorials/jpa-hibernate-annotations)
+- [Java Persistance specification](https://docs.oracle.com/javaee/7/api/javax/persistence/package-summary.html)
 
 ## More Things TODO 
 
