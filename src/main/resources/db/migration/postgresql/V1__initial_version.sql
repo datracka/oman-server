@@ -1,6 +1,32 @@
+CREATE SEQUENCE todoitem_id_seq 
+  START WITH 1 
+  INCREMENT BY 1 
+  NO MINVALUE 
+  NO MAXVALUE 
+  CACHE 1; 
+
+create table if not exists todoitem
+(
+    id          bigint  not null DEFAULT nextval('todoitem_id_seq')
+        primary key, 
+    title varchar(255) not null,
+    description varchar not null,
+    completed boolean not null
+);
+
+alter table todoitem
+    owner to vicensfayos;
+
+CREATE SEQUENCE enduser_id_seq 
+  START WITH 1 
+  INCREMENT BY 1 
+  NO MINVALUE 
+  NO MAXVALUE 
+  CACHE 1; 
+
 create table if not exists enduser
 (
-    id          bigint  not null
+    id          bigint  not null DEFAULT nextval('enduser_id_seq')
         primary key, 
     user_name varchar(255) not null,
     email varchar(255) not null,
@@ -13,9 +39,16 @@ create table if not exists enduser
 alter table enduser
     owner to vicensfayos;
 
+CREATE SEQUENCE setting_id_seq 
+  START WITH 1 
+  INCREMENT BY 1 
+  NO MINVALUE 
+  NO MAXVALUE 
+  CACHE 1; 
+
 create table if not exists setting
 (
-    id          bigint  not null
+    id          bigint  not null DEFAULT nextval('setting_id_seq')
         primary key,
     linkedin_cookie  varchar(255),
     dropcontact_api_key varchar(255),
@@ -39,9 +72,16 @@ alter table setting
     owner to vicensfayos;
 
 
+CREATE SEQUENCE campaign_id_seq 
+  START WITH 1 
+  INCREMENT BY 1 
+  NO MINVALUE 
+  NO MAXVALUE 
+  CACHE 1; 
+
 create table if not exists campaign
 (
-     id          bigint  not null
+     id          bigint  not null DEFAULT nextval('campaign_id_seq')
         primary key, 
     campaignName varchar(512) not null,
     linkedin_leads_url varchar(255) not null,
@@ -61,9 +101,16 @@ create table if not exists campaign
 alter table campaign
     owner to vicensfayos;
 
+CREATE SEQUENCE lead_id_seq 
+  START WITH 1 
+  INCREMENT BY 1 
+  NO MINVALUE 
+  NO MAXVALUE 
+  CACHE 1; 
+
 create table if not exists lead
 (
-    id          bigint  not null
+    id          bigint  not null DEFAULT nextval('campaign_id_seq')
         primary key,
     full_name varchar(255) not null,
     first_name varchar(255) not null,
