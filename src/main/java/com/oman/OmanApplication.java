@@ -1,22 +1,32 @@
 package com.oman;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.oman.campaign.Campaign;
+import com.oman.campaign.CampaignRepo;
+import com.oman.enduser.EndUser;
+import com.oman.enduser.EndUserRepo;
+import com.oman.setting.Setting;
+import com.oman.setting.SettingRepo;
 import com.oman.todoitem.TodoItem;
 import com.oman.todoitem.TodoItemRepo;
+
+import jakarta.persistence.EntityManager;
 
 @SpringBootApplication
 public class OmanApplication implements CommandLineRunner {
 
-	private static final Logger logger = LoggerFactory.getLogger(OmanApplication.class);
+	@Autowired
+	private EndUserRepo endUserRepo;
 
 	@Autowired
-	private TodoItemRepo todoItemRepo;
+	private SettingRepo settingRepo;
+
+	@Autowired
+	private CampaignRepo campaignRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(OmanApplication.class, args);
@@ -25,13 +35,18 @@ public class OmanApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 
-		todoItemRepo.save(new TodoItem("title1", "description1", false));
-		todoItemRepo.save(new TodoItem("title2", "description2", false));
-		todoItemRepo.save(new TodoItem("title3", "description3", false));
+		var enduser = new EndUser("Oman", "aa@aaa.es", "1234");
 
-		for (var todoItemRepo : todoItemRepo.findAll()) {
-			logger.info(todoItemRepo.getTitle());
-		}
+		// var enduser1 = endUserRepo.save();
+		// settingRepo.save(
+		Setting setting = new Setting("linkedinCookie", "dropContactApiKey", "zohoApiKey",
+				"openAIApiKey", "openAIOrganizationId",
+				"emailBounceAddress",
+				"emailDomain", "emailSender",
+				"emailTestSender", "emailTestRecipient", true);
+		setting.setEnduser(enduser);
+		settingRepo.save(setting);
+
 	}
 
 }

@@ -1,13 +1,16 @@
 package com.oman.todoitem;
 
+import java.util.UUID;
+
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.lang.NonNull;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +20,6 @@ import lombok.Setter;
 @Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "todoitem")
 public class TodoItem {
@@ -31,4 +33,7 @@ public class TodoItem {
     private String description;
     @NonNull
     private Boolean completed;
+
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID uuid;
 }

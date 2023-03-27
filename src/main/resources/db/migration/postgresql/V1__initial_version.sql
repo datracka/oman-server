@@ -11,7 +11,8 @@ create table if not exists todoitem
         primary key, 
     title varchar(255) not null,
     description varchar not null,
-    completed boolean not null
+    completed boolean not null,
+    uuid varchar(255)
 );
 
 alter table todoitem
@@ -33,7 +34,7 @@ create table if not exists enduser
     password varchar(255) not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255) not null
+    uuid varchar(255)
 );
 
 alter table enduser
@@ -50,10 +51,10 @@ create table if not exists setting
 (
     id          bigint  not null DEFAULT nextval('setting_id_seq')
         primary key,
-    linkedin_cookie  varchar(255),
-    dropcontact_api_key varchar(255),
-    zoho_api_key varchar(255),
-    openai_api_key varchar(255),
+    linkedin_cookie  varchar(255) not null,
+    dropcontact_api_key varchar(255) not null,
+    zoho_api_key varchar(255) not null,
+    openai_api_key varchar(255) not null,
     openai_organization_id varchar(255),
     email_bounce_address varchar(255) not null,
     email_domain varchar(255) not null,
@@ -64,7 +65,7 @@ create table if not exists setting
     enduser_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255) not null,
+    uuid varchar(255),
     CONSTRAINT fk_user FOREIGN KEY(enduser_id) REFERENCES enduser(id)
 );
 
@@ -94,7 +95,7 @@ create table if not exists campaign
     enduser_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255) not null,
+    uuid varchar(255),
     CONSTRAINT fk_user FOREIGN KEY(enduser_id) REFERENCES enduser(id)
 );
 
@@ -123,7 +124,7 @@ create table if not exists lead
     campaign_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255) not null,
+    uuid varchar(255),
     CONSTRAINT fk_campaign FOREIGN KEY(campaign_id) REFERENCES campaign(id)
 );
 

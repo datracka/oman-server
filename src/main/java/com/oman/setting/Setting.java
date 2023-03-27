@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.lang.NonNull;
 
 import com.oman.enduser.EndUser;
 
@@ -16,34 +17,45 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Table(name = "setting")
 public class Setting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NonNull
     private String linkedinCookie;
+    @NonNull
     private String dropContactApiKey;
+    @NonNull
     private String zohoApiKey;
+    @NonNull
     private String openAIApiKey;
 
+    @NonNull
     private String openAIOrganizationId;
 
+    @NonNull
     private String emailBounceAddress;
+    @NonNull
     private String emailDomain;
+    @NonNull
     private String emailSender;
+    @NonNull
     private String emailTestSender;
+    @NonNull
     private String emailTestRecipient;
+    @NonNull
     private Boolean testMode;
 
     @CreationTimestamp
@@ -52,13 +64,33 @@ public class Setting {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @GeneratedValue(generator = "UUID")
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "end_user_id", referencedColumnName = "id")
     private EndUser enduser;
 
-    public Setting(String linkedinCookie, String dropContactApiKey, String zohoApikey, String openAAPiKey, String openAIOrganizationID, String emailBouncedAddress, String emailSender, String emailTestSender, String emailTestRecipient, boolean b) {
-    }
+    // public Setting(@NonNull String linkedinCookie, @NonNull String
+    // dropContactApiKey, @NonNull String zohoApiKey,
+    // @NonNull String openAIApiKey,
+    // @NonNull String openAIOrganizationId, @NonNull String emailBounceAddress,
+    // @NonNull String emailDomain,
+    // @NonNull String emailSender,
+    // @NonNull String emailTestSender, @NonNull String emailTestRecipient, @NonNull
+    // Boolean testMode,
+    // ) {
+    // this.linkedinCookie = linkedinCookie;
+    // this.dropContactApiKey = dropContactApiKey;
+    // this.zohoApiKey = zohoApiKey;
+    // this.openAIApiKey = openAIApiKey;
+    // this.openAIOrganizationId = openAIOrganizationId;
+    // this.emailBounceAddress = emailBounceAddress;
+    // this.emailDomain = emailDomain;
+    // this.emailSender = emailSender;
+    // this.emailTestSender = emailTestSender;
+    // this.emailTestRecipient = emailTestRecipient;
+    // this.testMode = testMode;
+    // }
+
 }

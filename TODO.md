@@ -2,9 +2,15 @@
 
 ## Next
 
-- with TODOItem save an item using commandline runner.
+Trying to save a setting (with an user inside)
+
+Currently I have the error: `ERROR: null value in column "dropcontact_api_key" violates not-null constraint` but It looks like I am settint everything properly... maybe something related to Lombok?
+
+Also I think I need to understand EntityManager to save entities properly: https://www.javaguides.net/2018/12/different-ways-to-update-jpa-entity-objects-into-database.html 
+
+# Nice to Have
+- Learn how to generate a UUID automatically (by now I removed the not null constraint in the sql script)
 - learn HAL and define api with swagger to define the API.
-- Create RestComponents and connect with the model 
 - Shape API for our needs
 - Auth in Spring (API based)
 
