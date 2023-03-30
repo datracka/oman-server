@@ -12,14 +12,14 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.lang.NonNull;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
+// import jakarta.persistence.CascadeType;
+// import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+// import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -54,9 +54,12 @@ public class EndUser {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "enduser_id")
-    private Set<Campaign> campaign;
+    /*
+     * @OneToMany(cascade = CascadeType.ALL)
+     * 
+     * @JoinColumn(name = "enduser_id")
+     * private Set<Campaign> campaign;
+     */
 
     @OneToOne(mappedBy = "enduser")
     private Setting setting;

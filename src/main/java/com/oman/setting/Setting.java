@@ -33,28 +33,27 @@ public class Setting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NonNull
+
     private String linkedinCookie;
-    @NonNull
+
     private String dropContactApiKey;
-    @NonNull
+
     private String zohoApiKey;
-    @NonNull
+
     private String openAIApiKey;
 
-    @NonNull
     private String openAIOrganizationId;
 
-    @NonNull
     private String emailBounceAddress;
-    @NonNull
+
     private String emailDomain;
-    @NonNull
+
     private String emailSender;
-    @NonNull
+
     private String emailTestSender;
-    @NonNull
+
     private String emailTestRecipient;
+
     @NonNull
     private Boolean testMode;
 
@@ -67,30 +66,8 @@ public class Setting {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "end_user_id", referencedColumnName = "id")
+    @OneToOne()
+    @JoinColumn(name = "enduser_id", referencedColumnName = "id")
     private EndUser enduser;
-
-    // public Setting(@NonNull String linkedinCookie, @NonNull String
-    // dropContactApiKey, @NonNull String zohoApiKey,
-    // @NonNull String openAIApiKey,
-    // @NonNull String openAIOrganizationId, @NonNull String emailBounceAddress,
-    // @NonNull String emailDomain,
-    // @NonNull String emailSender,
-    // @NonNull String emailTestSender, @NonNull String emailTestRecipient, @NonNull
-    // Boolean testMode,
-    // ) {
-    // this.linkedinCookie = linkedinCookie;
-    // this.dropContactApiKey = dropContactApiKey;
-    // this.zohoApiKey = zohoApiKey;
-    // this.openAIApiKey = openAIApiKey;
-    // this.openAIOrganizationId = openAIOrganizationId;
-    // this.emailBounceAddress = emailBounceAddress;
-    // this.emailDomain = emailDomain;
-    // this.emailSender = emailSender;
-    // this.emailTestSender = emailTestSender;
-    // this.emailTestRecipient = emailTestRecipient;
-    // this.testMode = testMode;
-    // }
 
 }

@@ -15,18 +15,17 @@ import com.oman.todoitem.TodoItem;
 import com.oman.todoitem.TodoItemRepo;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 @SpringBootApplication
 public class OmanApplication implements CommandLineRunner {
 
 	@Autowired
-	private EndUserRepo endUserRepo;
-
-	@Autowired
 	private SettingRepo settingRepo;
 
 	@Autowired
-	private CampaignRepo campaignRepo;
+	private EndUserRepo endUserRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(OmanApplication.class, args);
@@ -35,15 +34,8 @@ public class OmanApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 
-		var enduser = new EndUser("Oman", "aa@aaa.es", "1234");
-
-		// var enduser1 = endUserRepo.save();
-		// settingRepo.save(
-		Setting setting = new Setting("linkedinCookie", "dropContactApiKey", "zohoApiKey",
-				"openAIApiKey", "openAIOrganizationId",
-				"emailBounceAddress",
-				"emailDomain", "emailSender",
-				"emailTestSender", "emailTestRecipient", true);
+		var enduser = endUserRepo.save(new EndUser("Muni", "aa@aaa.es", "1234"));
+		var setting = new Setting(false);
 		setting.setEnduser(enduser);
 		settingRepo.save(setting);
 

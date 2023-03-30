@@ -8,6 +8,24 @@ Currently I have the error: `ERROR: null value in column "dropcontact_api_key" v
 
 Also I think I need to understand EntityManager to save entities properly: https://www.javaguides.net/2018/12/different-ways-to-update-jpa-entity-objects-into-database.html 
 
+https://www.digitalocean.com/community/tutorials/jpa-entitymanager-hibernate
+
+lee esto:
+
+https://stackoverflow.com/questions/62285322/detached-entity-passed-to-persist-jpa-spring-boot-save
+
+https://stackoverflow.com/questions/68034557/spring-boot-jpa-entity-map-same-referenced-column-as-id-and-entity
+
+also, interesting how it works with 
+
+- Controllers
+- Services
+- Dtos -> maybe a bit of refresh about DTOs in Java :) 
+
+- https://subscription.packtpub.com/book/web-development/9781803243214/7/ch07lvl1sec39/adding-redis-for-caching (check creating controller)
+
+
+
 # Nice to Have
 - Learn how to generate a UUID automatically (by now I removed the not null constraint in the sql script)
 - learn HAL and define api with swagger to define the API.
