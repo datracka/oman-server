@@ -10,6 +10,7 @@ import org.springframework.lang.NonNull;
 import com.oman.enduser.EndUser;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,33 +35,56 @@ public class Setting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
+    @Column(name = "linkedin_cookie")
     private String linkedinCookie;
 
+    @NonNull
+    @Column(name = "dropcontact_api_key")
     private String dropContactApiKey;
 
+    @NonNull
+    @Column(name = "zoho_api_key")
     private String zohoApiKey;
 
+    @NonNull
+    @Column(name = "openai_api_key")
     private String openAIApiKey;
 
+    @NonNull
+    @Column(name = "openai_organization_id")
     private String openAIOrganizationId;
 
+    @NonNull
+    @Column(name = "email_bounce_address")
     private String emailBounceAddress;
 
+    @NonNull
+    @Column(name = "email_domain")
     private String emailDomain;
 
+    @NonNull
+    @Column(name = "email_sender")
     private String emailSender;
 
+    @NonNull
+    @Column(name = "email_test_sender")
     private String emailTestSender;
 
+    @NonNull
+    @Column(name = "email_test_recipient")
     private String emailTestRecipient;
 
     @NonNull
+    @Column(name = "test_mode")
     private Boolean testMode;
 
     @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     @GeneratedValue(strategy = GenerationType.UUID)

@@ -35,7 +35,20 @@ public class OmanApplication implements CommandLineRunner {
 	public void run(String... args) {
 
 		var enduser = endUserRepo.save(new EndUser("Muni", "aa@aaa.es", "1234"));
-		var setting = new Setting(false);
+
+		var setting = new Setting();
+		setting.setLinkedinCookie("XLinkedinCookie");
+		setting.setDropContactApiKey("XDContact");
+		setting.setZohoApiKey("XZohoApiKey");
+		setting.setOpenAIApiKey("XopenAIApiKey");
+		setting.setOpenAIOrganizationId("XopenAIOrganizationId");
+		setting.setEmailBounceAddress("XemailBounceAddress");
+		setting.setEmailDomain("XEmailDomain");
+		setting.setEmailSender("XEmailSender");
+		setting.setEmailTestSender("XEmailTestSender");
+		setting.setEmailTestRecipient("XEmailTestRecipient");
+		setting.setTestMode(true);
+
 		setting.setEnduser(enduser);
 		settingRepo.save(setting);
 

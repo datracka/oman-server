@@ -1,5 +1,9 @@
 # TODO
 
+## Very Next
+
+- [ ] Add again all null restrictions to Settings and table
+- [ ] Add Campaign relationship to EndUser
 ## Next
 
 Trying to save a setting (with an user inside)
