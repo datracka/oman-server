@@ -2,23 +2,26 @@
 
 ## Very Next
 
-- [ ] Add again all null restrictions to Settings and table
-- [ ] Add Campaign relationship to EndUser
+- [ ] replace @NonNull from `springframework.lang.NonNull` with @NotNull from `spring-boot-starter-validation` (add dependency)
+
 ## Next
 
-Trying to save a setting (with an user inside)
+- [ ] Define API (Settings / Users). 
+  - https://github.com/khoubyari/spring-boot-rest-example/tree/master
+  - 
+- [ ] Create DTOS and services following this example
+https://subscription.packtpub.com/book/web-development/9781803243214/7/ch07lvl1sec37/adding-models
 
-Currently I have the error: `ERROR: null value in column "dropcontact_api_key" violates not-null constraint` but It looks like I am settint everything properly... maybe something related to Lombok?
+
+### Interesting lectures
+
+API Error handling 
+
+https://subscription.packtpub.com/book/application-development/9781788475891/10/ch10lvl1sec43/building-a-rest-client
 
 Also I think I need to understand EntityManager to save entities properly: https://www.javaguides.net/2018/12/different-ways-to-update-jpa-entity-objects-into-database.html 
 
 https://www.digitalocean.com/community/tutorials/jpa-entitymanager-hibernate
-
-lee esto:
-
-https://stackoverflow.com/questions/62285322/detached-entity-passed-to-persist-jpa-spring-boot-save
-
-https://stackoverflow.com/questions/68034557/spring-boot-jpa-entity-map-same-referenced-column-as-id-and-entity
 
 also, interesting how it works with 
 
@@ -26,9 +29,15 @@ also, interesting how it works with
 - Services
 - Dtos -> maybe a bit of refresh about DTOs in Java :) 
 
-- https://subscription.packtpub.com/book/web-development/9781803243214/7/ch07lvl1sec39/adding-redis-for-caching (check creating controller)
+Collio: 
 
+https://github.com/hellokoding/hellokoding-courses/tree/master/springboot-examples/springboot-restapi-testing-all-layers/src/main/java/com/hellokoding/springboot/restful/product
 
+https://hellokoding.com/restful-api-example-with-spring-boot-spring-data-rest-one-to-many-relationship-and-mysql/
+
+Spring Boot microservices lecture: 
+
+https://codeburst.io/spring-boot-rest-microservices-best-practices-2a6e50797115
 
 # Nice to Have
 - Learn how to generate a UUID automatically (by now I removed the not null constraint in the sql script)
