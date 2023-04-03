@@ -12,6 +12,8 @@
 - [ ] Create DTOS and services following this example
 https://subscription.packtpub.com/book/web-development/9781803243214/7/ch07lvl1sec37/adding-models
 
+- [ ] I wanted to add swagger directly in amigo project, but not possible
+
 
 ### Interesting lectures
 
