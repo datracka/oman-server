@@ -15,7 +15,7 @@ public class SettingService {
     }
 
     public Setting findSettingById(Long id) {
-        return null;
+        return settingRepo.findById(id).orElse(null);
     }
 
     public Setting saveSetting(Setting setting) {

@@ -1,5 +1,7 @@
 package com.oman.setting;
 
+// import com.oman.common.AbstractRestHandler;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -32,8 +34,8 @@ public class SettingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SettingDto> getSetting(@PathVariable Long id) {
-        return null;
+    public SettingDto getSetting(@PathVariable Long id) {
+        return convertToDto(settingService.findSettingById(id));
     }
 
     @PostMapping
