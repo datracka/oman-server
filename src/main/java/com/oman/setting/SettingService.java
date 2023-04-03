@@ -19,10 +19,11 @@ public class SettingService {
     }
 
     public Setting saveSetting(Setting setting) {
-        return null;
+        return settingRepo.save(setting);
     }
 
     public void deleteSettingById(Long id) {
+        settingRepo.deleteById(id);
     }
 
     public Setting updateSetting(Setting setting) {

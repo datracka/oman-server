@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/settings")
@@ -38,17 +42,21 @@ public class SettingController {
         return convertToDto(settingService.findSettingById(id));
     }
 
-    @PostMapping
-    public ResponseEntity<SettingDto> createSetting(SettingDto settingDto) {
-        return null;
+    @RequestMapping(value = "", method = RequestMethod.POST, consumes = { "application/json" })
+    public SettingDto createSetting(@Valid @RequestBody SettingDto settingDto) {
+        Setting setting = convertToEntity(settingDto);
+        return convertToDto(settingService.saveSetting(setting));
     }
 
     @PutMapping("/{id}")
     public void updateSetting(SettingDto settingDto) {
+        Setting setting = convertToEntity(settingDto);
+        settingService.updateSetting(setting);
     }
 
     @DeleteMapping("/{id}")
     public void deleteSettingById(Long id) {
+        settingService.deleteSettingById(id);
     }
 
     private SettingDto convertToDto(Setting entity) {

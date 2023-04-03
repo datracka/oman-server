@@ -1,6 +1,10 @@
 package com.oman.setting;
 
+import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.UUID;
+
+import com.oman.enduser.EndUser;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,5 +27,8 @@ public class SettingDto {
     private String emailTestSender;
     private String emailTestRecipient;
     private Boolean testMode;
+    // private EndUser endUser;
+    private LocalDateTime createdDate;
+    private LocalDateTime updatedDate;
     private UUID uuid;
 }

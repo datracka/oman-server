@@ -1,29 +1,32 @@
 # TODO
 
-## Very Next
-
-- [ ] replace @NonNull from `springframework.lang.NonNull` with @NotNull from `spring-boot-starter-validation` (add dependency)
-
 ## Next
 
-- [ ] Define API (Settings / Users). 
-  - https://github.com/khoubyari/spring-boot-rest-example/tree/master
-  - 
-- [ ] Create DTOS and services following this example
-https://subscription.packtpub.com/book/web-development/9781803243214/7/ch07lvl1sec37/adding-models
-
-- [ ] I wanted to add swagger directly in amigo project, but not possible
-
+- [ ] In Api Setting when retrieving a setting in DTO cast to get the userID returns an error. 
+If we add in DTO `public Enduser user` it should be mapped properly from the entity. Maybe check the [mapperModel](https://modelmapper.org/getting-started/) or how to create yours.
+- [ ] In Api Post method, enduser / createAt and updateAt are not set from the DTO to the entity.
+- [ ] Define API Users.
+- [ ] - [ ] replace @NonNull from `springframework.lang.NonNull` with @NotNull from `spring-boot-starter-validation` (add dependency)
 
 ### Interesting lectures
 
-API Error handling 
+Packt lectures: 
+
+https://subscription.packtpub.com/
+
+To create DTOs
+
+https://subscription.packtpub.com/book/web-development/9781803243214/7/ch07lvl1sec37/adding-models
+
+API Error handling
 
 https://subscription.packtpub.com/book/application-development/9781788475891/10/ch10lvl1sec43/building-a-rest-client
 
 Also I think I need to understand EntityManager to save entities properly: https://www.javaguides.net/2018/12/different-ways-to-update-jpa-entity-objects-into-database.html 
 
 https://www.digitalocean.com/community/tutorials/jpa-entitymanager-hibernate
+
+for Api reference https://github.com/khoubyari/spring-boot-rest-example/tree/master
 
 also, interesting how it works with 
 
