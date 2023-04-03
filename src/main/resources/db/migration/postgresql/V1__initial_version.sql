@@ -12,7 +12,7 @@ create table if not exists todoitem
     title varchar(255) not null,
     description varchar not null,
     completed boolean not null,
-    uuid varchar(255)
+    uuid uuid
 );
 
 alter table todoitem
@@ -34,7 +34,7 @@ create table if not exists enduser
     password varchar(255) not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255)
+    uuid uuid
 );
 
 alter table enduser
@@ -65,7 +65,7 @@ create table if not exists setting
     enduser_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255),
+    uuid uuid,
     CONSTRAINT fk_user FOREIGN KEY(enduser_id) REFERENCES enduser(id)
 );
 
@@ -95,7 +95,7 @@ create table if not exists campaign
     enduser_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255),
+    uuid uuid,
     CONSTRAINT fk_user FOREIGN KEY(enduser_id) REFERENCES enduser(id)
 );
 
@@ -124,7 +124,7 @@ create table if not exists lead
     campaign_id bigint not null,
     created_at timestamp not null,
     updated_at timestamp not null,
-    uuid varchar(255),
+    uuid uuid,
     CONSTRAINT fk_campaign FOREIGN KEY(campaign_id) REFERENCES campaign(id)
 );
 

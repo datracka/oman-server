@@ -63,4 +63,19 @@ https://codeburst.io/spring-boot-rest-microservices-best-practices-2a6e50797115
 
 https://www.youtube.com/watch?v=A8qZUF-GcKo
 
-  
+# info swagger
+
+http://localhost:8080/swagger-ui
+
+## add test data
+
+```sql
+INSERT INTO 
+  public.enduser(user_name, email, password, created_at, updated_at)
+VALUES 
+('pepe', 'aaa@aaa.es', 'secret', current_timestamp, current_timestamp);
+
+INSERT INTO public.setting(
+  linkedin_cookie, dropcontact_api_key, zoho_api_key, openai_api_key, openai_organization_id, email_bounce_address, email_domain, email_sender, email_test_sender, email_test_recipient, test_mode, enduser_id, created_at, updated_at)
+VALUES ('X11', 'Y22', 'Z11', 'AX22', 'AY33', 'AZ22', 'BX333', 'B55Y', 'BZ22', 'CX33', false, 2, current_timestamp, current_timestamp);
+```

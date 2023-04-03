@@ -11,7 +11,7 @@ public class SettingService {
     private final SettingRepo settingRepo;
 
     public Iterable<Setting> findAllSettings() {
-        return null;
+        return settingRepo.findAll();
     }
 
     public Setting findSettingById(Long id) {
